@@ -1,0 +1,22 @@
+nav {
+  font-size: 1.5rem;
+}
+
+nav a {
+  color: var(--text-color) !important;
+  text-shadow: -1px 0.5px var(--tertiary);
+  position: relative;
+  z-index: 99;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #aba969;
+  border-radius: 50%;
+  width: 135%;
+  height: 80%;
+}

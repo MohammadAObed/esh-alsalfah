@@ -1,0 +1,42 @@
+body {
+  background-color: var(--primary);
+  color: var(--text-color) !important;
+}
+
+.container-centered {
+  justify-content: space-around !important;
+  height: 100vh;
+  /* border: 1px solid red; */
+}
+
+.footer {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.play-btn {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 5px 10px;
+  width: 90%;
+  color: var(--text-color);
+  background-color: var(--tertiary);
+  border-radius: 5px;
+  box-shadow: inset -2px -2px 1px rgba(0, 0, 0, 0.3),
+    3px 3px 3px rgba(0, 0, 0, 0.1);
+  transform: skew(-1deg);
+}
+
+.play-btn:active {
+  box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.3),
+    3px 3px 3px rgba(0, 0, 0, 0.1);
+  transform: skew(-1deg);
+}
+
+.footer p {
+  cursor: pointer;
+  margin-top: 20px;
+}
