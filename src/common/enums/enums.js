@@ -1,3 +1,5 @@
-export const gameStatues = {
-  createPlayers: 1,
+export const gameStatusEnum = {
+  CreatePlayers: 1,
+  RevealRoles: 2,
+  Questions: 3,
 };

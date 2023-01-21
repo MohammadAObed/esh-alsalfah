@@ -1,0 +1,10 @@
+.games-container {
+  margin-top: 50px;
+  margin-right: 0px; /*bcz of container class that has 20 padding or something in App.css*/
+  margin-left: -10px; /*bcz of container class that has 20 padding or something in App.css*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid red; */
+}

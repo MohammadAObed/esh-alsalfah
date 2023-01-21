@@ -6,7 +6,7 @@ body {
 .container-centered {
   justify-content: space-around !important;
   height: 100vh;
-  /* border: 1px solid red; */
+  border: 1px solid red;
 }
 
 .footer {
@@ -28,9 +28,11 @@ body {
   box-shadow: inset -2px -2px 1px rgba(0, 0, 0, 0.3),
     3px 3px 3px rgba(0, 0, 0, 0.1);
   transform: skew(-1deg);
+  text-align: center;
 }
 
-.play-btn:active {
+.play-btn:active,
+.play-btn:hover {
   box-shadow: inset 2px 2px 1px rgba(0, 0, 0, 0.3),
     3px 3px 3px rgba(0, 0, 0, 0.1);
   transform: skew(-1deg);

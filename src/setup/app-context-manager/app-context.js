@@ -7,7 +7,6 @@ import React, {
   useEffect,
   useState,
 } from "react";
-import { Book } from "../../common/components/book";
 const AppContext = createContext();
 //Drawbacks of context: whenever state of this context changes, everything inside the provider (children) rerenders!!!!, i tried useMemo, React.memo, ... nothing worked
 //so only put state that is rarerly changing && its needed in almost all pages of the app

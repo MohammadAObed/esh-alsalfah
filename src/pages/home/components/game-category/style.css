@@ -1,0 +1,74 @@
+.game {
+  user-select: none;
+  display: flex;
+  flex-wrap: wrap;
+  /* border-bottom: 3px solid rgb(125, 129, 133); */
+  flex: 1 1 calc(50% - 10px);
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.game::before {
+  content: "";
+  position: absolute;
+  width: 100vw;
+  height: 3px;
+  bottom: 0;
+  background-color: rgb(125, 129, 133);
+  box-shadow: 2px 5px 1px rgba(0, 0, 0, 0.1);
+  z-index: 9;
+}
+
+.game .img-container {
+  cursor: pointer;
+  width: 110px;
+  height: 180px;
+  position: relative;
+  z-index: 99;
+}
+/* make it behind the cover */
+.game .img-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -10px;
+  transform: rotate(5deg) translateX(-10px);
+  z-index: -1;
+  width: 110px;
+  height: 180px;
+  background: inherit;
+  background-color: #4d4c3a;
+  box-shadow: 2px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.game .img-container:active,
+.game .img-container:hover {
+  background-color: black;
+  transform: scale(1.1) translateY(-7px) rotate(1deg);
+  z-index: 99;
+}
+
+.game img {
+  object-fit: cover;
+  width: 100%;
+  height: 180px;
+}
+
+.img-container .name {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  text-align: center;
+  z-index: 3;
+  color: #eee;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.15), 1px -1px 0 rgba(0, 0, 0, 0.15),
+    -1px 1px 0 rgba(0, 0, 0, 0.15), 1px 1px 0 rgba(0, 0, 0, 0.15);
+}
+
+.game-bg-4 {
+  filter: grayscale(0.45);
+}

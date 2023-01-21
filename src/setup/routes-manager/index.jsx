@@ -1,23 +1,32 @@
-import React from 'react';
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from '../../pages/home';
-import FirstPage from '../../pages/first-page';
-import SharedLayout from '../../common/components/shared-layout';
+import { Home } from "../../pages/home";
+import FirstPage from "../../pages/first-page";
+import SharedLayout from "../../common/components/shared-layout";
+import Game from "../../pages/game";
+import { GameContextProvider } from "../app-context-manager/game-context";
 // import { AboutPage } from './AboutPage';
 // import { ContactPage } from './ContactPage';
 
- const RoutesManager = () => {
+const RoutesManager = () => {
   return (
-      <BrowserRouter>
-        <Routes>
+    <BrowserRouter>
+      <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<FirstPage />} />
           <Route path="Home" element={<Home />} />
-          {/* <Route path="guess-the-player" element={<GuessThePlayer />} /> */}
-          <Route path="*" element={<NotFoundPage/>} />
+          <Route
+            path="Game/:id"
+            element={
+              <GameContextProvider>
+                <Game />
+              </GameContextProvider>
+            }
+          />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
-        </Routes>
-      </BrowserRouter>
+      </Routes>
+    </BrowserRouter>
   );
 };
 

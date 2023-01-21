@@ -1,0 +1,96 @@
+.players-lobby {
+  /* border: 1px solid red; */
+  height: 80vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.players-lobby h2 {
+  /* margin-right: 50px; */
+}
+
+.players-container {
+  overflow-y: auto;
+  height: 60vh;
+  /* margin-right: 50px; */
+}
+
+.players-container::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.players-container::-webkit-scrollbar-thumb {
+  width: 7px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.players-lobby .btns-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* margin-right: 50px; */
+  padding-left: 10px;
+  /* border: 1px solid red; */
+}
+
+.players-lobby button {
+  cursor: pointer;
+  padding: 5px 15px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: var(--tertiary);
+}
+
+button.next {
+  width: 30vw;
+}
+
+button.add-player {
+  border-radius: 50%;
+  text-align: center;
+  height: 40px;
+}
+
+.player {
+  display: flex;
+  width: 80vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  background-color: var(--secondary);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  /* border: 1px solid red; */
+}
+
+.player-form {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-end; */
+  gap: 10px;
+  height: 100px;
+  width: 70vw;
+  flex-wrap: wrap-reverse;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding: 5px 5px;
+  /* border: 1px solid red; */
+}
+
+.player-form .add-player-input {
+  text-align: right;
+  font-size: 1.5rem;
+  padding: 5px 15px;
+  background-color: var(--secondary);
+  color: #fff;
+  height: 45px;
+  min-width: 150px;
+  flex: 1;
+}
+
+.player-form button {
+  height: 45px;
+}

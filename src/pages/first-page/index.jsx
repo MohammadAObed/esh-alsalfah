@@ -1,15 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { Book } from "../../common/components/book";
 import GameModal from "../../common/components/game-modal";
 import useLoading from "../../common/hooks/useLoading";
+import useModal from "../../common/hooks/useModal";
 import "./style.css";
 
 const FirstPage = () => {
   const [isLoading, setIsLoading] = useLoading();
-  const modalRef = useRef(null);
-  const openModal = useCallback((e) => {
-    modalRef.current.style.display = "block";
-  }, []);
+  const { modalRef, openModal, closeModal } = useModal();
   return (
     <>
       {<Book isLoading={isLoading} />}
@@ -20,12 +19,16 @@ const FirstPage = () => {
       >
         <Book isLoading={true} />
         <div className="footer">
-          <button className="play-btn">العب</button>
+          <NavLink className="play-btn" to="/Home">
+            العب
+          </NavLink>
           <p onClick={openModal}>
             حول اللعبة <span>&#1567;</span>
           </p>
         </div>
-        <GameModal modalRef={modalRef} />
+        <GameModal modalRef={modalRef} closeModal={closeModal}>
+          <p>.اللعبة ممتازة جربها او لا تجربها ل</p>
+        </GameModal>
       </div>
     </>
   );

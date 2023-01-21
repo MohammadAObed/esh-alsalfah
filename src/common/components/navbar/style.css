@@ -9,14 +9,24 @@ nav a {
   z-index: 99;
 }
 
+nav .q-m {
+  font-size: 1.3rem;
+}
+
 nav a::before {
   content: "";
   position: absolute;
   top: 60%;
-  left: 50%;
+  left: 45%;
   transform: translate(-50%, -50%);
   border: 1px solid #aba969;
   border-radius: 50%;
-  width: 135%;
-  height: 80%;
+  width: 20px;
+  height: 22px;
+}
+
+nav .q-m::before {
+  top: 55%;
+  left: 50%;
+  height: 23px;
 }

@@ -35,7 +35,7 @@
   position: absolute;
   box-shadow: inset 5px 5px 10px rgba(255, 255, 255, 0.3),
     inset 5px 5px 10px 5px rgba(0, 0, 0, 0.3);
-  /* background-image: url("../../../assets/images/Friends-gossiping.jpg"); */
+  /* background-image: url("../../../../public/assets/images/Friends-gossiping.jpg"); */
 }
 
 .box h1 {
@@ -48,7 +48,7 @@
 
 .left {
   transform: translateZ(150px);
-  background-image: url("../../../assets/images/viggies.jpg");
+  background-image: url("../../../../public/assets/svg/coat.svg");
   background-attachment: fixed;
   background-position: center 100px;
   background-size: 210%;
@@ -57,7 +57,7 @@
 
 .right {
   transform: translateZ(-150px);
-  background-image: url("../../../assets/images/viggies.jpg");
+  background-image: url("../../../../public/assets/images/viggies.jpg");
   background-attachment: fixed;
   background-position: center 100px;
   background-size: 210%;
@@ -65,7 +65,7 @@
 }
 
 .front {
-  background-image: url("../../../assets/svg/dog-footprint.svg");
+  background-image: url("../../../../public/assets/svg/dog-footprint.svg");
   /* border-top: 1px solid var(--quaternary); */
   background-color: rgba(95, 8, 235, 0.3);
   transform: translateX(-150px) rotateY(90deg);
@@ -77,7 +77,7 @@
 .back {
   /* border-top: 1px solid var(--quaternary); */
   /* background-color: rgb(61, 139, 212); */
-  background-image: url("../../../assets/svg/coat.svg");
+  background-image: url("../../../../public/assets/svg/coat.svg");
   background-attachment: fixed;
   background-position: center 10px;
   background-size: 170%;
