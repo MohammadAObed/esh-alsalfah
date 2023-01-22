@@ -32,8 +32,8 @@ function GameContextProvider({ children }) {
     status
   );
   useEffect(() => {
-    console.count();
-    console.log(gameAnswer);
+    // console.count();
+    // console.log(gameAnswer);
   });
   if (!singleGame) {
     return (

@@ -3,7 +3,6 @@ import GameModal from "../../../../common/components/game-modal";
 import { useGameContext } from "../../../../setup/app-context-manager/game-context";
 import usePlayerStuff from "./hooks/usePlayerStuff";
 import "./style.css";
-import { playerModel } from "../../models";
 import { gameStatusEnum } from "../../../../common/enums/enums";
 
 const PlayersLobby = React.memo(() => {
@@ -17,7 +16,7 @@ const PlayersLobby = React.memo(() => {
   const [playerInput, setPlayerInput] = useState(""); //will cause rerender to whole component, but react recommends to use controlled input so ask further
   const playerInputRef = useRef(null);
   const handleSubmit = (e) => {
-    console.log(e.target);
+    // console.log(e.target);
     e.preventDefault();
     if (!playerInput) return;
     addPlayer(playerInput);
@@ -77,7 +76,7 @@ const PlayersLobby = React.memo(() => {
           <input
             type="text"
             className="add-player-input"
-            placeholder="ضيف هون"
+            placeholder="ضيف لاعب"
             onChange={(e) => setPlayerInput(e.target.value)}
             value={playerInput}
             ref={playerInputRef}

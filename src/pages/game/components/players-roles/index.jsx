@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { playerModel } from "../../models";
 import { useGameContext } from "../../../../setup/app-context-manager/game-context";
 import useCurrentPlayer from "./hooks/useCurrentPlayer";
 
@@ -25,7 +24,7 @@ const PlayersRoles = () => {
   };
   useEffect(() => {
     console.count();
-    console.log(gameAnswer, imposter);
+    // console.log(gameAnswer, imposter);
   });
   return (
     <div className="container flex-column-center mtb32">

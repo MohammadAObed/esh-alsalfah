@@ -6,7 +6,7 @@ body {
 .container-centered {
   justify-content: space-around !important;
   height: 100vh;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .footer {

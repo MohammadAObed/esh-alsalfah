@@ -50,7 +50,7 @@ button:active {
 
 .general-btn-2 {
   cursor: pointer;
-  padding: 5px 15px;
+  padding: 3px 15px;
   font-size: 1.5rem;
   color: #fff;
   background-color: var(--tertiary);
@@ -197,6 +197,14 @@ p {
 .plr32 {
   padding-left: 32px;
   padding-right: 32px;
+}
+
+.fs-1 {
+  font-size: 1.5rem;
+}
+
+.bg-color-red {
+  background-color: rgb(170, 14, 14);
 }
 
 .opacity-0 {

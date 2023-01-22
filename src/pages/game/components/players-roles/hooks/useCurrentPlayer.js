@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { gameStatusEnum } from "../../../../../common/enums/enums";
-import { playerModel } from "../../../models";
+import { Player } from "../../../models";
 function useCurrentPlayer(players, setPlayers, setStatus) {
-  const [currentPlayer, setCurrentPlayer] = useState(playerModel);
+  const [currentPlayer, setCurrentPlayer] = useState(new Player(""));
   const [isRoleShown, setIsRoleShown] = useState(false);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function useCurrentPlayer(players, setPlayers, setStatus) {
       Math.random() * playersHasNotPlayed.length
     );
     setCurrentPlayer((prev) => {
-      console.log();
+      // console.log();
       return playersHasNotPlayed[randomPlayerIdIndex];
     });
   }, [players]);

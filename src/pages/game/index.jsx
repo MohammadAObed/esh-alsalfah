@@ -9,6 +9,7 @@ import useLocalStorage from "../../common/hooks/useLocalStorage";
 import { useGameContext } from "../../setup/app-context-manager/game-context";
 import PlayersRoles from "./components/players-roles";
 import PlayersQuestions from "./components/players-questions";
+import PlayersAdditionalQuestions from "./components/players-additional-questions";
 
 const Game = () => {
   const { gameData, status, setStatus, gameAnswer, setGameAnswer } =
@@ -23,6 +24,11 @@ const Game = () => {
       {status === gameStatusEnum.CreatePlayers ? <PlayersLobby /> : ""}
       {status === gameStatusEnum.RevealRoles ? <PlayersRoles /> : ""}
       {status === gameStatusEnum.Questions ? <PlayersQuestions /> : ""}
+      {status === gameStatusEnum.AdditionalQuestions ? (
+        <PlayersAdditionalQuestions />
+      ) : (
+        ""
+      )}
     </div>
   );
 };
