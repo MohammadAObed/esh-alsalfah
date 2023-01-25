@@ -1,0 +1,15 @@
+.results-heading {
+  font-size: 3rem;
+  text-shadow: 2px 2px 0 rgb(170, 14, 14), -2px -2px 0 rgb(170, 14, 14),
+    2px -2px 0 rgb(170, 14, 14), -2px 2px 0 rgb(170, 14, 14);
+}
+.results {
+  width: 80vw;
+  /* border: 1px solid red; */
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+}

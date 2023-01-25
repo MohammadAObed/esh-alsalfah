@@ -25,7 +25,7 @@ function GameContextProvider({ children }) {
   const [singleGame] = useState(() => {
     return GamesJSON.find((g) => g.id == id) || null;
   });
-  const [gameAnswer, imposter] = useNewGameStarters(
+  const [gameAnswer, imposter, setMakeNewGameStarters] = useNewGameStarters(
     GamesJSONDetails,
     singleGame,
     players,
@@ -55,6 +55,7 @@ function GameContextProvider({ children }) {
         setStatus,
         gameAnswer,
         imposter,
+        setMakeNewGameStarters,
       }}
     >
       {children}

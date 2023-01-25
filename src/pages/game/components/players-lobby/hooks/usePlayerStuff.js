@@ -1,5 +1,9 @@
 import { Player } from "../../../models";
 
+function resetPoints(players) {
+  return players.map((player) => ({ ...player, points: 0 }));
+}
+
 function usePlayerStuff(players, setPlayers) {
   const isPlayersEmpty = players?.length > 0 ? false : true;
   const addPlayer = (playerName) => {
@@ -9,13 +13,15 @@ function usePlayerStuff(players, setPlayers) {
       : Math.max(...players.map((p) => p.id)) + 1;
     // console.log(newPlayer);
     setPlayers((prev) => {
-      return [...prev, newPlayer];
+      let updatedPlayers = resetPoints(prev);
+      return [...updatedPlayers, newPlayer];
     });
   };
   const removePlayer = (playerId) => {
     setPlayers((prev) => {
       const newPlayers = players.filter((p) => p.id != playerId);
-      return [...newPlayers];
+      let updatedPlayers = resetPoints(newPlayers);
+      return [...updatedPlayers];
     });
   };
 

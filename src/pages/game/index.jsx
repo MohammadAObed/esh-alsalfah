@@ -10,6 +10,11 @@ import { useGameContext } from "../../setup/app-context-manager/game-context";
 import PlayersRoles from "./components/players-roles";
 import PlayersQuestions from "./components/players-questions";
 import PlayersAdditionalQuestions from "./components/players-additional-questions";
+import PlayersVotes from "./components/players-votes";
+import PlayersImposter from "./components/players-Imposter";
+import PlayersPoints from "./components/players-points";
+import PlayersImposterAnswer from "./components/players-imposter-answer";
+import PlayersRoundEnd from "./components/players-round-end";
 
 const Game = () => {
   const { gameData, status, setStatus, gameAnswer, setGameAnswer } =
@@ -29,6 +34,15 @@ const Game = () => {
       ) : (
         ""
       )}
+      {status === gameStatusEnum.Voting ? <PlayersVotes /> : ""}
+      {status === gameStatusEnum.RevealImposter ? <PlayersImposter /> : ""}
+      {status === gameStatusEnum.ImposterAnswer ? (
+        <PlayersImposterAnswer />
+      ) : (
+        ""
+      )}
+      {status === gameStatusEnum.ShowPoints ? <PlayersPoints /> : ""}
+      {status === gameStatusEnum.RoundEnd ? <PlayersRoundEnd /> : ""}
     </div>
   );
 };

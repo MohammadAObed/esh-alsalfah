@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useMemo } from "react";
 import { useEffect } from "react";
 import { gameStatusEnum } from "../../../../common/enums/enums";
 import { useGameContext } from "../../../../setup/app-context-manager/game-context";
@@ -12,10 +13,17 @@ const initialQuestion = {
   began: false,
 };
 
+const noAskerIndex = -1;
+
 const PlayersQuestions = () => {
   const { players, setStatus } = useGameContext();
   const [question, setQuestion] = useState(initialQuestion);
   const [isNewQuestion, setIsNewQuestion] = useState(false);
+  const [askerIndex, setAskerIndex] = useState(noAskerIndex);
+  let randomPositionedPlayers = useMemo(
+    () => players.sort(() => Math.random() - 0.5),
+    [players]
+  );
   const NewQuestion = () => {
     setIsNewQuestion(true);
     setQuestion((prev) => {
@@ -26,19 +34,30 @@ const PlayersQuestions = () => {
     if (!isNewQuestion) return;
     var checker = players.every((p) => question.prevAskersIds.includes(p.id)); //check if the questions ended, all players asked and got asked
     if (checker) {
-      console.log("askersLength,playersLength", question.prevAskeeIds, players);
       setStatus(gameStatusEnum.AdditionalQuestions);
       return;
     }
-    let asker = getRandomItemFromArray(
-      players.filter((p) => !question.prevAskersIds.includes(p.id))
-    );
-    let askee = getRandomItemFromArray(
-      players.filter(
-        (p) => p.id !== asker.id && !question.prevAskeeIds.includes(p.id)
-      )
-    );
-    console.log("askkkkk", asker.name, askee.name);
+    if (askerIndex >= randomPositionedPlayers.length) {
+      setAskerIndex(0);
+      return;
+    }
+    setAskerIndex((prevState) => prevState + 1);
+    setIsNewQuestion(false);
+  }, [isNewQuestion]);
+
+  useEffect(() => {
+    //? what to do? (ask chatgpt) just randomise the order of players in te players array
+    //? then let first one ask second, third ask fourth or first if they are only three...
+    //? then second ask third, (3 players)
+    //? then fourth ask first, second ask third (4players)
+    //? hint (shuffle array is the name) from chatgpt, code: array.sort(() => Math.random() - 0.5);
+    if (askerIndex <= noAskerIndex) return;
+    let askeeIndex = askerIndex + 1;
+    if (askerIndex >= randomPositionedPlayers.length - 1) {
+      askeeIndex = 0;
+    }
+    let asker = randomPositionedPlayers[askerIndex];
+    let askee = randomPositionedPlayers[askeeIndex];
     setQuestion((prevState) => {
       return {
         ...prevState,
@@ -48,8 +67,8 @@ const PlayersQuestions = () => {
         prevAskeeIds: [...prevState.prevAskeeIds, askee.id],
       };
     });
-    setIsNewQuestion(false);
-  }, [isNewQuestion]);
+  }, [askerIndex]);
+  useEffect(() => {});
   return (
     <div className="container flex-column-center mtb32">
       <h2 className="mtb32 color-3">وقت الاسئلة</h2>

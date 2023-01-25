@@ -3,7 +3,13 @@ import { useGameContext } from "../../../../setup/app-context-manager/game-conte
 import useCurrentPlayer from "./hooks/useCurrentPlayer";
 
 const PlayersRoles = () => {
-  const { players: pp, gameAnswer, imposter, setStatus } = useGameContext();
+  const {
+    players: pp,
+    gameAnswer,
+    imposter,
+    setStatus,
+    setMakeNewGameStarters,
+  } = useGameContext();
   const [players, setPlayers] = useState(pp);
   const [currentPlayer, setCurrentPlayer, isRoleShown, setIsRoleShown] =
     useCurrentPlayer(players, setPlayers, setStatus);
@@ -23,9 +29,9 @@ const PlayersRoles = () => {
     setIsRoleShown(true);
   };
   useEffect(() => {
-    console.count();
+    setMakeNewGameStarters((prev) => true);
     // console.log(gameAnswer, imposter);
-  });
+  }, []);
   return (
     <div className="container flex-column-center mtb32">
       <h1 className="mtb32 color-3">{currentPlayer.name}</h1>

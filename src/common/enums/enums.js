@@ -4,4 +4,8 @@ export const gameStatusEnum = {
   Questions: 3,
   AdditionalQuestions: 4,
   Voting: 5,
+  RevealImposter: 6,
+  ImposterAnswer: 7,
+  ShowPoints: 8,
+  RoundEnd: 9,
 };

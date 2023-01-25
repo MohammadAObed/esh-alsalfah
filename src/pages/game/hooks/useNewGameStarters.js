@@ -4,8 +4,9 @@ import { getRandomItemFromArray } from "../utils";
 function useNewGameStarters(GamesJSONDetails, singleGame, players, status) {
   const [singleGameDetails, setSingleGameDetails] = useState({});
   const [imposter, setImpost] = useState({});
+  const [makeNewGameStarters, setMakeNewGameStarters] = useState(false);
   useEffect(() => {
-    if (status >= gameStatusEnum.RevealRoles) return;
+    if (makeNewGameStarters == false) return;
     const chosenDetails = GamesJSONDetails.filter(
       (x) => x.gameId == singleGame.id
     );
@@ -15,8 +16,9 @@ function useNewGameStarters(GamesJSONDetails, singleGame, players, status) {
     setImpost((prev) => {
       return getRandomItemFromArray(players);
     });
-  }, [status]);
-  return [singleGameDetails, imposter];
+    setMakeNewGameStarters(false);
+  }, [makeNewGameStarters]);
+  return [singleGameDetails, imposter, setMakeNewGameStarters];
 }
 
 export default useNewGameStarters;
