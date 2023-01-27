@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router";
 import { gameStatusEnum } from "../../common/enums/enums";
 import gamesData from "../../common/data/games.json";
 import "./style.css";
-import useGameData from "./hooks/useNewGameStarters";
 import PlayersLobby from "./components/players-lobby";
-import useLocalStorage from "../../common/hooks/useLocalStorage";
 import { useGameContext } from "../../setup/app-context-manager/game-context";
 import PlayersRoles from "./components/players-roles";
 import PlayersQuestions from "./components/players-questions";
@@ -17,8 +14,7 @@ import PlayersImposterAnswer from "./components/players-imposter-answer";
 import PlayersRoundEnd from "./components/players-round-end";
 
 const Game = () => {
-  const { gameData, status, setStatus, gameAnswer, setGameAnswer } =
-    useGameContext();
+  const { status } = useGameContext();
   //create context or not as you like, (try yes) for state that is not very changing
   //try refactoring it !!!!!!later!!!!!! with reducer...
   useEffect(() => {
@@ -49,5 +45,6 @@ const Game = () => {
 
 export default Game;
 
+//you can use params, or location, or whatever... choose wisely based on your usecase
 // let location = useLocation();
 // let data = location.state.data.id;

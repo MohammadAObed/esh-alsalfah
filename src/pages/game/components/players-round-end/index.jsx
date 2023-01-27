@@ -1,5 +1,6 @@
 import React from "react";
 import { gameStatusEnum } from "../../../../common/enums/enums";
+import { playBtnClickSound } from "../../../../common/utils/playBtnClickAudio";
 import { useGameContext } from "../../../../setup/app-context-manager/game-context";
 
 const PlayersRoundEnd = () => {
@@ -15,6 +16,7 @@ const PlayersRoundEnd = () => {
         <button
           onClick={(e) => {
             setStatus((prev) => gameStatusEnum.RevealRoles);
+            playBtnClickSound();
           }}
           className="general-btn general-btn-2 width-200 mtb128"
         >
@@ -23,6 +25,7 @@ const PlayersRoundEnd = () => {
         <button
           onClick={(e) => {
             setStatus((prev) => gameStatusEnum.CreatePlayers);
+            playBtnClickSound();
           }}
           className="general-btn general-btn-2 mtb16 width-200 bg-color-red"
         >

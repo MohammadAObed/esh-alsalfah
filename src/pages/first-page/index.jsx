@@ -4,6 +4,7 @@ import { Book } from "../../common/components/book";
 import GameModal from "../../common/components/game-modal";
 import useLoading from "../../common/hooks/useLoading";
 import useModal from "../../common/hooks/useModal";
+import { playBtnClickSound } from "../../common/utils/playBtnClickAudio";
 import "./style.css";
 
 const FirstPage = () => {
@@ -19,7 +20,12 @@ const FirstPage = () => {
       >
         <Book isLoading={true} />
         <div className="footer">
-          <NavLink className="play-btn" to="/Home">
+          <NavLink
+            className="play-btn"
+            to="/Home"
+            onClick={playBtnClickSound}
+            data-audio="true"
+          >
             العب
           </NavLink>
           <p onClick={openModal}>

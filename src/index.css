@@ -40,6 +40,14 @@ button {
   -ms-user-select: none; /* Internet Explorer */
   user-select: none; /* Standard syntax */
 }
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
 button:active {
   outline: none;
 }

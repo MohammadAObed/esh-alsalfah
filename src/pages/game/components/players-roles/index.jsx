@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { playBtnClickSound } from "../../../../common/utils/playBtnClickAudio";
 import { useGameContext } from "../../../../setup/app-context-manager/game-context";
 import useCurrentPlayer from "./hooks/useCurrentPlayer";
 
@@ -59,6 +60,7 @@ const PlayersRoles = () => {
       <button
         onClick={(e) => {
           isRoleShown ? updateCurrentPlayer() : revealRole();
+          playBtnClickSound();
         }}
         className="general-btn general-btn-2 width-200 mtb128"
       >

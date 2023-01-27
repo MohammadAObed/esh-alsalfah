@@ -1,5 +1,6 @@
 import React from "react";
 import { gameStatusEnum } from "../../../../common/enums/enums";
+import { playBtnClickSound } from "../../../../common/utils/playBtnClickAudio";
 import { useGameContext } from "../../../../setup/app-context-manager/game-context";
 import "./style.css";
 const PlayersPoints = () => {
@@ -15,6 +16,7 @@ const PlayersPoints = () => {
       <button
         onClick={(e) => {
           setStatus((prev) => gameStatusEnum.RoundEnd);
+          playBtnClickSound();
         }}
         className="general-btn general-btn-2 width-200 mtb128"
       >

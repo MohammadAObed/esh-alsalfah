@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useMemo } from "react";
 import { useEffect } from "react";
 import { gameStatusEnum } from "../../../../common/enums/enums";
+import { playBtnClickSound } from "../../../../common/utils/playBtnClickAudio";
 import { useGameContext } from "../../../../setup/app-context-manager/game-context";
 import { getRandomItemFromArray } from "../../utils";
 
@@ -90,6 +91,7 @@ const PlayersQuestions = () => {
       <button
         onClick={(e) => {
           NewQuestion();
+          playBtnClickSound();
         }}
         className="general-btn general-btn-2 width-200 mtb128"
       >

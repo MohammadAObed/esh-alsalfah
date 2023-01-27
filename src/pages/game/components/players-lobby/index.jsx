@@ -4,6 +4,7 @@ import { useGameContext } from "../../../../setup/app-context-manager/game-conte
 import usePlayerStuff from "./hooks/usePlayerStuff";
 import "./style.css";
 import { gameStatusEnum } from "../../../../common/enums/enums";
+import { playBtnClickSound } from "../../../../common/utils/playBtnClickAudio";
 
 const PlayersLobby = React.memo(() => {
   //setPlayers will invoke the useEffect with useLocalStorage
@@ -55,22 +56,33 @@ const PlayersLobby = React.memo(() => {
           onClick={(e) => {
             openModal(e);
             playerInputRef.current.focus();
+            playBtnClickSound();
           }}
+          data-audio="true"
         >
           +
         </button>
         <button
           className="next general-btn"
-          onClick={nextOnClick}
+          onClick={() => {
+            nextOnClick();
+            playBtnClickSound();
+          }}
           disabled={players.length < 3 ? true : false}
           style={{ opacity: players.length < 3 ? 0.5 : 1 }}
+          data-audio="true"
         >
           التالي
         </button>
       </div>
       <GameModal modalRef={modalRef} closeModal={closeModal}>
         <form onSubmit={handleSubmit} className="player-form">
-          <button type="submit" className="general-btn">
+          <button
+            type="submit"
+            className="general-btn"
+            onClick={playBtnClickSound}
+            data-audio="true"
+          >
             ضيف
           </button>
           <input
@@ -92,7 +104,14 @@ export default PlayersLobby;
 const Player = ({ name, points, id, removePlayer }) => {
   return (
     <div className="player">
-      <button className="add-player" onClick={() => removePlayer(id)}>
+      <button
+        className="add-player"
+        onClick={() => {
+          removePlayer(id);
+          playBtnClickSound();
+        }}
+        data-audio="true"
+      >
         -
       </button>
       <h2>{name}</h2>

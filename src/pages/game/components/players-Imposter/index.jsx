@@ -1,9 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { gameStatusEnum } from "../../../../common/enums/enums";
+import { playBtnClickSound } from "../../../../common/utils/playBtnClickAudio";
 import { useGameContext } from "../../../../setup/app-context-manager/game-context";
 import { getRandomItemFromArray } from "../../utils";
 import "./style.css";
+import gameOverSound from "../../../../assets/audio/game-over.wav";
+
 const PlayersImposter = () => {
   const { players, imposter, setStatus } = useGameContext();
   const [playerName, setPlayerName] = useState("");
@@ -19,8 +22,12 @@ const PlayersImposter = () => {
       setStopAnim(true);
       setPlayerName(imposter.name);
     }, 3000);
+    const audio = new Audio(gameOverSound);
+    audio.play();
+    audio.playbackRate = 1.3;
     return () => {
       clearInterval(interval);
+      // clearInterval(intervalAudio);
       clearTimeout(timeout);
     };
   }, []);
@@ -42,7 +49,10 @@ const PlayersImposter = () => {
         </div>
       </div>
       <button
-        onClick={(e) => setStatus((prev) => gameStatusEnum.ImposterAnswer)}
+        onClick={(e) => {
+          setStatus((prev) => gameStatusEnum.ImposterAnswer);
+          playBtnClickSound();
+        }}
         className={`general-btn general-btn-2 width-200 mtb128 ${
           stopAnim ? `` : `opacity-0`
         }`}
