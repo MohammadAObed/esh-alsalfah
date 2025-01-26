@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { gameStatusEnum } from "../../common/enums/enums";
-import gamesData from "../../common/data/games.json";
-import "./style.css";
-import PlayersLobby from "./components/players-lobby";
 import { useGameContext } from "../../setup/app-context-manager/game-context";
-import PlayersRoles from "./components/players-roles";
-import PlayersQuestions from "./components/players-questions";
 import PlayersAdditionalQuestions from "./components/players-additional-questions";
-import PlayersVotes from "./components/players-votes";
 import PlayersImposter from "./components/players-Imposter";
-import PlayersPoints from "./components/players-points";
 import PlayersImposterAnswer from "./components/players-imposter-answer";
+import PlayersLobby from "./components/players-lobby";
+import PlayersPoints from "./components/players-points";
+import PlayersQuestions from "./components/players-questions";
+import PlayersRoles from "./components/players-roles";
 import PlayersRoundEnd from "./components/players-round-end";
+import PlayersVotes from "./components/players-votes";
+import "./style.css";
 
 const Game = () => {
   const { status } = useGameContext();
@@ -21,22 +20,14 @@ const Game = () => {
     // setGameAnswer();
   }, []);
   return (
-    <div className="container plr32 ptb16">
+    <div className="container plr32 ptb16" style={{ display: "flex", justifyContent: "center" }}>
       {status === gameStatusEnum.CreatePlayers ? <PlayersLobby /> : ""}
       {status === gameStatusEnum.RevealRoles ? <PlayersRoles /> : ""}
       {status === gameStatusEnum.Questions ? <PlayersQuestions /> : ""}
-      {status === gameStatusEnum.AdditionalQuestions ? (
-        <PlayersAdditionalQuestions />
-      ) : (
-        ""
-      )}
+      {status === gameStatusEnum.AdditionalQuestions ? <PlayersAdditionalQuestions /> : ""}
       {status === gameStatusEnum.Voting ? <PlayersVotes /> : ""}
       {status === gameStatusEnum.RevealImposter ? <PlayersImposter /> : ""}
-      {status === gameStatusEnum.ImposterAnswer ? (
-        <PlayersImposterAnswer />
-      ) : (
-        ""
-      )}
+      {status === gameStatusEnum.ImposterAnswer ? <PlayersImposterAnswer /> : ""}
       {status === gameStatusEnum.ShowPoints ? <PlayersPoints /> : ""}
       {status === gameStatusEnum.RoundEnd ? <PlayersRoundEnd /> : ""}
     </div>

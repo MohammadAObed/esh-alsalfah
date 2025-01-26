@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
 import useModal from "../../hooks/useModal";
+import { playBtnClickSound } from "../../utils/playBtnClickAudio";
 import GameModal from "../game-modal";
 import "./style.css";
-import { playBtnClickSound } from "../../utils/playBtnClickAudio";
 const Navbar = () => {
   const { modalRef, openModal, closeModal } = useModal();
   //console.count("Navbar"); //? dont rely on console, use profiler in devtools because its more accurate, check google for clarity
@@ -24,7 +24,7 @@ const Navbar = () => {
         </NavLink>
       </nav>
       <GameModal modalRef={modalRef} closeModal={closeModal}>
-        <p>.اللعبة ممتازة جربها او لا تجربها ل</p>
+        <p>العب مع الاصحاب، حتى صاحب يلعب فيكم</p>
       </GameModal>
     </>
   );
